@@ -1,21 +1,13 @@
-# Homework_Assignment_11
+**Asian Options**
 
-Please refer to Topic 8 Slide # 58 for the details of HW11. The followings are the inputs and outputs for HW11. Your outputs could be different, but should be around these numbers:
+Aim: Price Arithmetic Average Asian Call and Delta in C++ with plain Monte Carlo and Monte Carlo with a geometric Asian control variate
 
-Input:
+Entry Point: Main04.cpp - Sets up option and computes price, error and delta both ways (S0=100, K=100, r=3%, vol=20%, T=1 month, 30 fixings, 30,000 paths)
+Quick summary on files:
+MCModel.cpp: Price Path Simulator
+PathDepOption.cpp: Pricer, plain Monte Carlo and control variate Monte Carlo, arithmetic Asian payoff
+GmtrAsianCall.cpp: Geometric Asian payoff and closed-form price, used as the control variate
+EurCall.cpp: Black-Scholes price, delta and vega
 
-   double S0=100.0, r=0.03, sigma=0.2;
-   double T =1.0/12.0, K=100.0;
-   int m=30;
-   long N=30000;
-   double epsilon =0.001;
-
-Output:
-
-Arithmetic call price = 1.42609
-Error = 0.000138491
-delta = 0.520246
-
-Price by direct MC = 1.41326
-Error = 0.0119483
-delta = 0.525525
+needs g++ and make on Linux, macOS or WSL
+Result: price about 1.426, delta about 0.52; control variate cuts standard error from 0.012 to 0.00014 (about 87x)
